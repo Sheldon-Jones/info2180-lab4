@@ -1,0 +1,9 @@
+body {
+  background-color: grey;
+  margin: 20px;
+  padding: 20px;
+}
+
+#searchBtn {
+    background-color: grey;
+}
