@@ -63,16 +63,15 @@ $superheroes = [
   ], 
 ];
 
-/*Server-side sanitization*/
-//  Q3:  query parameter handling for search 
+
+//  This section handles the query; converts to lower case by default 
 if (isset($_GET['query']) && !empty(trim($_GET['query']))) {
     $query = strtolower(trim($_GET['query']));
     $found = false;
     
-    // Q3: Search through superheroes array for matching alias or name
+    // iterates through the array of superheroes and selects the one entered by the user
     foreach ($superheroes as $hero) {
         if (strtolower($hero['alias']) === $query || strtolower($hero['name']) === $query) {
-            // Q3: Return superhero details in required HTML format
             echo "<h3>" . htmlspecialchars($hero['alias']) . "</h3>";
             echo "<h4>" . htmlspecialchars($hero['name']) . "</h4>";
             echo "<p>" . htmlspecialchars($hero['biography']) . "</p>";
@@ -81,12 +80,12 @@ if (isset($_GET['query']) && !empty(trim($_GET['query']))) {
         }
     }
     
-    // Q3: Return error message if superhero not found
+    
     if (!$found) {
-        echo "Superhero not found";
+        echo "Superhero not found"; //if the superhero entered is not found
     }
 } else {
-    // Return all superheroes as list 
+    // Produces list of superheroes
     echo '<ul>';
     foreach ($superheroes as $superhero) {
         echo "<li>" . htmlspecialchars($superhero['alias']) . "</li>";
