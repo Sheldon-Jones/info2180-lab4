@@ -1,9 +1,77 @@
 body {
-  background-color: grey;
+  background-color: lightblue;
   margin: 20px;
+  padding: 20px;
+  width: auto;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#searchBtn {  /*search button*/
+    background-color: #ff0000;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.searchDiv{ /*the section where the text field and search button are*/
+  color:white;
+  padding-bottom: 10px;
+  color: #000;
+  margin: 20px;
+}
+
+.searchDiv p {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #000000;
+}
+
+#userInput{ /*the text field*/
+  padding: 10px;
+  width:600px;
+}
+
+.searchField{
+  color:white;
+  padding-bottom: 50px;
+}
+
+.container{
+  background-color: lightblue;
+  margin: 50px;
+  padding: 10px;
+}
+
+#header{
+  background-color: rgb(88, 88, 206);
+  color: white;
+  text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 50px;
+}
+
+
+
+.resultHead h1{ 
+  color:black;
+  font-weight: bold;
   padding: 20px;
 }
 
-#searchBtn {
-    background-color: grey;
+#result{
+  color: #000;
+  border-top: 2px solid blue;
+  font-weight: bold;
+  padding: 20px;
+  margin: 20px; 
 }
+
+

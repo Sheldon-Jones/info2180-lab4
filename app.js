@@ -1,15 +1,16 @@
+
 document.addEventListener('DOMContentLoaded', function() {
-    const searchBtn = document.getElementById('searchBtn');
+    const searchBtn = document.getElementById('searchBtn'); //gets search button element from html and store in searchBtn
 
     
-    const userInput = document.getElementById('input'); //this variabl stores user input
-    const resultDiv = document.getElementById('result'); //this variable stores the result from the php
+    const userInput = document.getElementById('userInput'); //gets userInput element from html and store in userInput
+    const resultDiv = document.getElementById('result');
 
-    searchBtn.addEventListener('click', function() {
+    searchBtn.addEventListener('click', function() {  //search button functionality
         const query = userInput.value.trim();
         
-       
-        resultDiv.innerHTML = '<div class="loading">LOADING...</div>';
+        
+        resultDiv.innerHTML = '<div class="loading">Searching...</div>';
         
         
         fetch(`superheroes.php?query=${encodeURIComponent(query)}`)
@@ -17,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                console.log(response.text);
                 return response.text();
             })
             .then(data => {
@@ -33,9 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
      
-    function printResults(data, query) { //this function prints the search results
-        console.log(data);
-        console.log(query);
+    function printResults(data, query) {
         if (data.includes('Superhero not found')) {
             resultDiv.innerHTML = '<div class="error-message">SUPERHERO NOT FOUND</div>';
         } else if (query === '') {
@@ -46,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
-    userInput.addEventListener('keypress', function(event) { //allows user to search with enter button in case of no mouse
-        if (event.key === 'Enter') {
+    userInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
             searchBtn.click();
         }
     });
